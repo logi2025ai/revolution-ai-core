@@ -1,4 +1,4 @@
-name: Ashley workflow
+name: Ashley Bot Core
 
 on:
   push:
@@ -6,15 +6,16 @@ on:
       - main
 
 jobs:
-  run-script:
+  ejecutar-script:
     runs-on: ubuntu-latest
+
     steps:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
 
-      - name: Dar permisos al script
+      - name: Dar permisos de ejecución al script
         run: chmod +x ./github_push.sh
 
       - name: Ejecutar script de Ashley
         run: ./github_push.sh
-# Update para forzar ejecución
+
