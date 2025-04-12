@@ -6,16 +6,14 @@ on:
       - main
 
 jobs:
-  run-bot:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
 
       - name: Configurar permisos de ejecución
-        run: chmod +x ./github/workflows/github_push.sh
+        run: chmod +x ./github_push.sh
 
       - name: Ejecutar script de Ashley
-        run: ./github/workflows/github_push.sh
-
+        run: ./github_push.sh
