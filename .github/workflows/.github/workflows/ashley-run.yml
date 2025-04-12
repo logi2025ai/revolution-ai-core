@@ -17,3 +17,4 @@ jobs:
 
       - name: Ejecutar script de Ashley
         run: ./github_push.sh
+# Update para forzar ejecución
