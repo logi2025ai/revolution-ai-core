@@ -6,29 +6,29 @@ echo "🔁 Iniciando Ashley Bot Core..."
 echo "🧠 Ejecutando tareas básicas..."
 echo "=============================="
 
-# Configurar identidad
+# Configurar identidad del bot
 git config --global user.name "Ashley Bot"
 git config --global user.email "bot@ashley.ai"
 
-# Inicializar git si no está iniciado
+# Inicializar Git si no está
 if [ ! -d .git ]; then
   git init
 fi
 
-# Agregar y commitear si hay cambios
+# Agregar todos los archivos y hacer commit si hay cambios
 git add .
 git commit -m "Commit automático de Ashley" || echo "⚠️ Nada que commitear"
 
-# Agregar remote si no está
+# Configurar el remoto si no existe
 git remote | grep origin > /dev/null
 if [ $? -ne 0 ]; then
   git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 fi
 
-# Push con autenticación del bot
+# Hacer push al repositorio
 git push origin HEAD
 
-# Listar archivos
+# Mostrar archivos en el repositorio
 echo "📁 Archivos en el repo:"
 ls -la
 
